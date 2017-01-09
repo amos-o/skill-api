@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework_jwt.views import obtain_jwt_token
@@ -12,6 +12,7 @@ urlpatterns = [
 
     url(r'^skills/$', views.SkillList.as_view()),
     url(r'^skills/(?P<pk>[0-9]+)/$', views.SkillDetail.as_view()),
+    url(r'^docs/', include('rest_framework_docs.urls')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
